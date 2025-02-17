@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Claves de Acceso Ocular</title>
+</head>
+<body>
+    <div class="container vc">
+        <div class="rotating-div" id="rotatingDiv">
+            <div class="face front">
+                <div class="text">Visual Construido</div>
+            </div>
+            <div class="face back">
+                <div class="text">La persona está creando una imagen mental nueva, algo que no ha visto antes.</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container rv">
+        <div class="rotating-div" id="rotatingDiv">
+            <div class="face front">
+                <div class="text">Recuerdo Visual</div>
+            </div>
+            <div class="face back">
+                <div class="text">La persona está recordando sonidos o palabras que ha escuchado antes.</div>
+            </div>
+        </div>
+    </div>
+    <div class="container sk">
+        <div class="rotating-div" id="rotatingDiv">
+            <div class="face front">
+                <div class="text">Sensación Kinestesica</div>
+            </div>
+            <div class="face back">
+                <div class="text">La persona está recordando sonidos o palabras que ha escuchado antes.</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container di">
+        <div class="rotating-div" id="rotatingDiv">
+            <div class="face front">
+                <div class="text">Dialogo Interno</div>
+            </div>
+            <div class="face back">
+                <div class="text">La persona está hablando consigo misma internamente, como en un monólogo.</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="texto medio-izquierda">Recuerdo Auditivo</div>
+    <div class="texto medio-derecha">Audio Construido</div>
+    <div class="texto abajo-centro">Kinestesico</div>
+
+
+    <!-- Contenedor de los ojos -->
+    <div class="eyes">
+        <div class="eye">
+            <div class="ball"></div>
+        </div>
+        <div class="eye">
+            <div class="ball"></div>
+        </div>
+    </div>
+
+    <script>
+        var balls = document.getElementsByClassName("ball");
+        document.onmousemove = function(event) {
+            // Obtener las coordenadas del mouse
+            var x = event.clientX;
+            var y = event.clientY;
+    
+            // Convertir las coordenadas a porcentajes relativos al tamaño de la ventana
+            var xPercent = (x / window.innerWidth) * 100;
+            var yPercent = (y / window.innerHeight) * 100;
+    
+            // Aplicar las coordenadas a cada bola
+            for (var i = 0; i < balls.length; i++) {
+                balls[i].style.left = xPercent + "%";
+                balls[i].style.top = yPercent + "%";
+                balls[i].style.transform = "translate(-50%, -50%)"; // Centrar la bola en el cursor
+            }
+        };
+    </script>
+
+</body>
+</html>
